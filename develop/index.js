@@ -5,7 +5,10 @@ const inquirer = require("inquirer");
 
 // An array of questions for user input
 //TODO: find a way to add a "skip" options to questions
-const writeToFile = () => {
+const writeToFile = (readMeAnswers) => {
+    if (!readMeAnswers) {
+        readMeAnswers = []
+    }
  return inquirer
    .prompt([
      {
@@ -98,9 +101,24 @@ const writeToFile = () => {
          }
        },
      },
-   ])
+      {
+        type: "confirm",
+        name: "confirmNewProject",
+        message: "Would you like to enter another project?",
+        default: false,
+      },
+    ])
+
+   
    .then((answers) => {
+       readMeAnswers.push(answers);
+       if (answers.confirmNewProject) {
+           return writeToFile(readMeAnswers)
+       } else {
+           return readMeAnswers;
+       }
      console.log(answers);
+     console.log(readMeAnswers)
    });
 }
 
