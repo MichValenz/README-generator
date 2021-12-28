@@ -13,13 +13,14 @@ function renderLicenseSection(license) {}
 // TODO: Create a function to generate markdown for README
 const generateMarkdown = (readmeArray) => {
   return `
- ${readmeArray
+  ${readmeArray
     .map(({  title, description, installation }) => {
        return `# ${title}
-      
-      ## Description ${description}
-      
-      ## Installation ${installation} `
+
+       ## Description ${description} 
+       
+       ## Installation ${installation}
+       `;
     })
   
   }

@@ -32,7 +32,7 @@ const writeToFile = (README, answers) => {
          if (descriptionInput) {
            return true;
          } else {
-           console.log("Please add a description of your project/website.");
+           console.log("Please add a description of your project/website");
          }
        },
      },
@@ -45,7 +45,7 @@ const writeToFile = (README, answers) => {
            return true;
          } else {
            console.log(
-             "Please add a installation instructions for your project/website."
+             "Please add a installation instructions for your project/website"
            );
          }
        },
@@ -53,12 +53,12 @@ const writeToFile = (README, answers) => {
      {
        type: "input",
        name: "use",
-       message: "Describe the use of the project/application.",
+       message: "Describe the use of the project/application",
        validate: (useInput) => {
          if (useInput) {
            return true;
          } else {
-           console.log("Please add use instructions for your project/website.");
+           console.log("Please add use instructions for your project/website");
          }
        },
      },
@@ -71,7 +71,7 @@ const writeToFile = (README, answers) => {
            return true;
          } else {
            console.log(
-             "Please list contributors or other contributions to your project."
+             "Please list contributors or other contributions to your project"
            );
          }
        },
@@ -85,7 +85,7 @@ const writeToFile = (README, answers) => {
          if (testInput) {
            return true;
          } else {
-           console.log("Please add tests for your project.");
+           console.log("Please add tests for your project");
          }
        },
      },
@@ -97,21 +97,42 @@ const writeToFile = (README, answers) => {
          if (questionsInput) {
            return true;
          } else {
+           console.log("Please add a Q&A section for your project");
+         }
+       },
+     },
+     {
+       type: "list",
+       name: "license",
+       message: "Select license type",
+       choices: [
+         "MIT",
+         "Apache License 2.0",
+         "GNU GPLv3",
+         "GNU AGPLv3",
+         "GNU LGPLv3",
+         "ISC License",
+         "Mozilla Public License 2.0",
+         "Boost Software License 1.0",
+         "The Unlicense",
+       ],
+       validate: (questionsInput) => {
+         if (questionsInput) {
+           return true;
+         } else {
            console.log("Please add a Q&A section for your project.");
          }
        },
      },
+   ])
 
-    ])
-
-   
    .then((answers) => {
-       README.push(answers);
-        return README;
-       
+     README.push(answers);
+     return README;
+
      console.log(answers);
-     console.log(README)
-    });
+     console.log(README);
+   });
 };
 
 
