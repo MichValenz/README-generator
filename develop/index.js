@@ -1,13 +1,13 @@
 // Packages needed for this application
 const inquirer = require("inquirer");
-//const fs = require("fs");
-//const generateMarkdown = require("./utils/generateMarkdown.js");
+const fs = require("fs");
+const generateMarkdown = require("./utils/generateMarkdown.js");
 
 // An array of questions for user input
 //TODO: find a way to add a "skip" options to questions
-const writeToFile = (readMeAnswers) => {
-    if (!readMeAnswers) {
-        readMeAnswers = []
+const writeToFile = (README, answers) => {
+    if (!README) {
+        README = [];
     }
  return inquirer
    .prompt([
@@ -101,36 +101,33 @@ const writeToFile = (readMeAnswers) => {
          }
        },
      },
-      {
-        type: "confirm",
-        name: "confirmNewProject",
-        message: "Would you like to enter another project?",
-        default: false,
-      },
+
     ])
 
    
    .then((answers) => {
-       readMeAnswers.push(answers);
-       if (answers.confirmNewProject) {
-           return writeToFile(readMeAnswers)
-       } else {
-           return readMeAnswers;
-       }
+       README.push(answers);
+        return README;
+       
      console.log(answers);
-     console.log(readMeAnswers)
-   });
-}
-
-writeToFile();
+     console.log(README)
+    });
+};
 
 
-// TODO: Create a function to write README file
-// //writeToFile()
-// //.then(writeToFile)
-// .then((readmeData) => {
-//     console.log(readmeData)
-// });
+writeToFile()
+.then((README) => {
+    const readMeFile = generateMarkdown(README);
+
+    fs.writeFile('./utils/README.md', readMeFile, err => {
+        if (err) {
+            console.log(err);
+            return;
+        }
+        console.log('Page created! Check out the README file in the directory.')
+    })
+})
+
 
 // TODO: Create a function to initialize app
 //function init() {}
