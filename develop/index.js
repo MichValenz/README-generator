@@ -5,10 +5,8 @@ const generateMarkdown = require("./utils/generateMarkdown.js");
 
 // An array of questions for user input
 //TODO: find a way to add a "skip" options to questions
-const writeToFile = (README, answers) => {
-    if (!README) {
-        README = [];
-    }
+const writeToFile = () => {
+ 
  return inquirer
    .prompt([
      {
@@ -90,18 +88,6 @@ const writeToFile = (README, answers) => {
        },
      },
      {
-       type: "input",
-       name: "questions",
-       message: "List frequently asked questions with answers",
-       validate: (questionsInput) => {
-         if (questionsInput) {
-           return true;
-         } else {
-           console.log("Please add a Q&A section for your project");
-         }
-       },
-     },
-     {
        type: "list",
        name: "license",
        message: "Select license type",
@@ -120,25 +106,49 @@ const writeToFile = (README, answers) => {
          if (questionsInput) {
            return true;
          } else {
-           console.log("Please add a Q&A section for your project.");
+           console.log("Please select a license for your project.");
+         }
+       },
+     },
+     {
+       type: "input",
+       name: "github",
+       message: "What is your GitHub username?",
+       validate: (questionsInput) => {
+         if (questionsInput) {
+           return true;
+         } else {
+           console.log("Please add your GitHub username");
+         }
+       },
+     },
+     {
+       type: "input",
+       name: "email",
+       message: "What is your email address?",
+       validate: (questionsInput) => {
+         if (questionsInput) {
+           return true;
+         } else {
+           console.log("Please add your email address");
          }
        },
      },
    ])
 
    .then((answers) => {
-     README.push(answers);
-     return README;
+ 
+     return answers;
 
-     console.log(answers);
-     console.log(README);
+     
+     
    });
 };
 
 
 writeToFile()
-.then((README) => {
-    const readMeFile = generateMarkdown(README);
+.then((answers) => {
+    const readMeFile = generateMarkdown(answers);
 
     fs.writeFile('./utils/README.md', readMeFile, err => {
         if (err) {
@@ -150,8 +160,13 @@ writeToFile()
 })
 
 
-// TODO: Create a function to initialize app
-//function init() {}
+// //TODO: Create a function to initialize app
+// function init() {
+//     inquirer.prompt(writeToFile)
+//     .then((README) => {
 
-// Function call to initialize app
-//init()
+//     }
+// }
+
+// //Function call to initialize app
+// init()
