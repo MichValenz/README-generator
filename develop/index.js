@@ -159,14 +159,3 @@ writeToFile()
     })
 })
 
-
-// //TODO: Create a function to initialize app
-// function init() {
-//     inquirer.prompt(writeToFile)
-//     .then((README) => {
-
-//     }
-// }
-
-// //Function call to initialize app
-// init()
