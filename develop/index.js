@@ -1,11 +1,11 @@
 // Packages needed for this application
 const inquirer = require("inquirer");
 const fs = require("fs");
-const generateMarkdown = require("./utils/generateMarkdown.js");
+const generatePage = require("./utils/generateMarkdown.js");
 
 // An array of questions for user input
 //TODO: find a way to add a "skip" options to questions
-const writeToFile = () => {
+const questions = () => {
  
  return inquirer
    .prompt([
@@ -93,13 +93,13 @@ const writeToFile = () => {
        message: "Select license type",
        choices: [
          "MIT",
-         "Apache License 2.0",
-         "GNU GPLv3",
-         "GNU AGPLv3",
-         "GNU LGPLv3",
-         "ISC License",
-         "Mozilla Public License 2.0",
-         "Boost Software License 1.0",
+         "Apache-2.0",
+         "GPL-3.0",
+         "AGPL-3.0",
+         "LGPL-3.0",
+         "ISC",
+         "MPL-2.0",
+         "BSL-1.0",
          "no",
        ],
        validate: (questionsInput) => {
@@ -137,18 +137,15 @@ const writeToFile = () => {
    ])
 
    .then((answers) => {
- 
      return answers;
-
-     
-     
    });
 };
 
 
-writeToFile()
+questions()
+
 .then((answers) => {
-    const readMeFile = generateMarkdown(answers);
+    const readMeFile = generatePage(answers);
 
     fs.writeFile('./utils/README.md', readMeFile, err => {
         if (err) {
