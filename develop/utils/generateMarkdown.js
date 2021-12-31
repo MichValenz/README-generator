@@ -4,19 +4,27 @@ let licenseLink = ""
 
 // a function that returns a license badge based on which license is passed in
 function renderLicenseBadge(licenseSelection) {
-  if (licenseSelection)
+  if (licenseSelection == "no"){
+    return ``
+  } else if (licenseSelection)
   return `[![License: ${licenseSelection}](https://img.shields.io/static/v1?label=license&message=${licenseSelection}&color=green)](https://opensource.org/licenses/${licenseSelection})\n\n`;
+
+
+
 }
 
 
 // a function that returns the license link
 // If there is no license, return an empty string
  function renderLicenseLink(licenseLink){   
-  if (licenseLink) {
+  
+  if (licenseLink === "no") {
+    return ``;
+  } 
+  
+  else if (licenseLink) {
     return `https://opensource.org/licenses/${licenseLink}\n\n`;
   
-  } else if (licenseLink === "no") {
-    return ``;
   } 
 ;
 }
