@@ -100,7 +100,7 @@ const writeToFile = () => {
          "ISC License",
          "Mozilla Public License 2.0",
          "Boost Software License 1.0",
-         "The Unlicense",
+         "no",
        ],
        validate: (questionsInput) => {
          if (questionsInput) {
