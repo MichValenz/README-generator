@@ -67,7 +67,7 @@ const generateMarkdown = (answers) => {
 
   ## Questions
   Need to reach me?
-  * [Email](${answers.email})
+  * Email: ${answers.email}
   * [GitHub](https://github.com/${answers.github}/${answers.title})
 
 
