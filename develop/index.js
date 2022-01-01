@@ -4,7 +4,7 @@ const fs = require("fs");
 const generatePage = require("./utils/generateMarkdown.js");
 
 // An array of questions for user input
-//TODO: find a way to add a "skip" options to questions
+
 const questions = () => {
  
  return inquirer
