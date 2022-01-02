@@ -26,14 +26,15 @@
   After cloning the remote repository onto your computer open in desired code editor and use the terminal on the index.js file to interact. Test the project by answering the prompt questions and creating a test README.
 
 ## Step 1. 
+* Open index.js in Terminal
 ![screenshot of opening terminal](images/open_terminal.jpeg)
 
 ## Step 2. 
-
+* Run node index to start the prompts
 ![screenshot of running node on the index file](images/nodeindex.jpeg)
 
 ## Step 3. 
-
+* Answer each prompt
 ![screenshot of prompt questions](images/prompt.jpeg)
 
 
