@@ -25,6 +25,18 @@
   ## Testing 
   After cloning the remote repository onto your computer open in desired code editor and use the terminal on the index.js file to interact. Test the project by answering the prompt questions and creating a test README.
 
+## Step 1. 
+![screenshot of opening terminal](images/open_terminal.jpeg)
+
+## Step 2. 
+
+![screenshot of running node on the index file](images/nodeindex.jpeg)
+
+## Step 3. 
+
+![screenshot of prompt questions](images/prompt.jpeg)
+
+
   ## License 
   This project has an MIT license.
   https://opensource.org/licenses/MIT
@@ -36,6 +48,10 @@
   Need to reach me?
   * Email: michvalenz27@gmail.com
   * [GitHub](https://github.com/MichValenz/README-generator)
+
+  ## Walkthrough Video
+  * https://watch.screencastify.com/v/9FXwkzin8csXxatpZjmS
+
 
 
        
